@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width"/>
+    <title>BootStrap Table使用</title>
+    <link href="css/bootstrap.css" rel="stylesheet"/>
+    <script data-main="js/main" src="js/require.js"></script>
+    <style>
+        .table thead tr th {
+            text-align: center;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+<div class="panel-body container">
+    <h1>Bootstrap Table Examples </h1>
+
+    <div id="toolbar" class="btn-group" style="margin-bottom: 10px">
+        <button id="btn_add" class="btn btn-success" data-toggle="modal" data-target="#myModal">
+            <!--ARIA可以让屏幕阅读器准确识别网页中的内容。
+            aria-hidden：字符串。可选值为true和false, true表示元素隐藏(不可见)，false表示元素可见。-->
+            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> 新增
+        </button>
+        <button id="btn_edit" class="btn btn-warning" disabled>
+            <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> 修改
+        </button>
+        <button id="btn_delete" class="btn btn-danger" disabled>
+            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> 删除
+        </button>
+        <button id="btn_refresh" type="button" class="btn btn-default">
+            <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span> 刷新
+        </button>
+    </div>
+    <div class="btn-group pull-right" style="margin-bottom: 10px">
+        <div style="position:relative;float: left;border-radius: 10px;">
+            <input type="text" id="input-search" class="form-control" placeholder="输入学号搜索">
+        </div>
+        <button id="btn_search" type="button" class="btn btn-primary">
+            <span class="glyphicon glyphicon-search" aria-hidden="true"></span> 查询
+        </button>
+    </div>
+    <div>
+        <table class="table table-bordered table-hover table-striped">
+            <thead>
+            <tr>
+                <th rowspan="2" style="width: 10%">全选
+                    <input  id="btSelectAll" type="checkbox">
+                </th>
+                <th rowspan="2">
+                    姓名
+                </th>
+                <th rowspan="2" >
+                    学号
+                </th>
+                <th rowspan="2" >
+                    年龄
+                </th>
+                <th rowspan="2">
+                    籍贯
+                </th>
+                <th colspan="3">
+                    成绩
+                </th>
+            </tr>
+            <tr>
+                <th>
+                    语文
+                </th>
+                <th>
+                    数学
+                </th>
+                <th>
+                    外语
+                </th>
+            </tr>
+            </thead>
+            <tbody id="start" style="text-align: center">
+            </tbody>
+        </table>
+    </div>
+    <!--<div class="fixed-table-loading" style="display: none;">正在努力地加载数据中，请稍候……</div>-->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        &times;
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">
+                        新增
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <div class="panel-body">
+                        <form id="form-modal">
+                            <div class="form-group">
+                                <!--label-for:用户点击文字就需要将光标聚焦到对应的表单上面-->
+                                <label class="control-label col-sm-2" for="name">姓名</label>
+
+                                <div class="col-sm-4">
+                                    <input type="text" class="form-control" id="name" placeholder="name">
+                                </div>
+                                <label class="control-label col-sm-2" for="number">学号</label>
+
+                                <div class="col-sm-4">
+                                    <input type="number" class="form-control" id="number" placeholder="number">
+                                </div>
+                                <label class="control-label col-sm-2" for="age">年龄</label>
+
+                                <div class="col-sm-4">
+                                    <input type="number" class="form-control" id="age" placeholder="age">
+                                </div>
+                                <label class="control-label col-sm-2" for="address">籍贯</label>
+
+                                <div class="col-sm-4">
+                                    <input type="text" class="form-control" id="address" placeholder="address">
+                                </div>
+                                <label class="control-label col-sm-2" for="Chinese">语文</label>
+
+                                <div class="col-sm-4">
+                                    <input type="number" class="form-control" id="Chinese" placeholder="Chinese">
+                                </div>
+                                <label class="control-label col-sm-2" for="math">数学</label>
+
+                                <div class="col-sm-4">
+                                    <input type="number" class="form-control" id="math" placeholder="math">
+                                </div>
+                                <label class="control-label col-sm-2" for="English">外语</label>
+
+                                <div class="col-sm-4">
+                                    <input type="number" class="form-control" id="English" placeholder="English">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+                    </button>
+                    <button type="button" class="btn btn-primary" id="btn-submit">
+                        提交
+                    </button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal -->
+    </div>
+</div>
+</body>
+</html>
